@@ -15,4 +15,14 @@ export class StudentService {
             return false;
         }
     }
+
+    async addStudentBatchJob(data: any): Promise<boolean> {
+        try{
+            await this.audioQueue.add('student-batch-upload-job', data);
+            return true;
+        } catch(error) {
+            console.log("error occured", error);
+            return false;
+        }
+    }
 }

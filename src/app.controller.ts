@@ -13,4 +13,9 @@ export class AppController {
     this.studentService.addStudentJob(data).then(data => console.log(data));
     //return this.appService.getHello();
   }
+
+  @MessagePattern({cmd: "student-batch-upload"})
+  studentBatchUpdate(data: any) {
+    this.studentService.addStudentBatchJob(data).then(data => console.log(data));
+  }
 }
